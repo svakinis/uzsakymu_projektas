@@ -68,7 +68,7 @@ class Services extends Component
         $service->delete();
 
         session()->flash('message', 'Paslauga sėkmingai pašalinta.');
-        // jei šiuo metu redaguojame tą pačią, atšaukti redagavimą
+
         if ($this->editMode && $this->serviceId == $id) {
             $this->cancel();
         }

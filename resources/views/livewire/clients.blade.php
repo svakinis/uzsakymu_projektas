@@ -40,12 +40,12 @@
             @error('city_id') <span class="text-red-600">{{ $message }}</span> @enderror
         </div>
 
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+        <button type="submit" class="bg-blue-600 text-dark px-4 py-2 rounded">
             {{ $isEdit ? 'Atnaujinti' : 'Sukurti' }}
         </button>
 
         @if ($isEdit)
-            <button type="button" wire:click="resetInput" class="ml-2 bg-gray-500 text-white px-4 py-2 rounded">
+        <button type="button" wire:click="resetInput" class="ml-2 bg-gray-500 text-dark px-4 py-2 rounded">
                 Atšaukti redagavimą
             </button>
         @endif
@@ -73,8 +73,12 @@
                     <td class="border border-gray-300 p-2">{{ $client->phone }}</td>
                     <td class="border border-gray-300 p-2">{{ $client->city ? $client->city->name : '-' }}</td>
                     <td class="border border-gray-300 p-2">
-                        <button wire:click="edit({{ $client->id }})" class="bg-yellow-400 px-2 py-1 rounded">Redaguoti</button>
-                        <button wire:click="confirmDelete({{ $client->id }})" class="bg-red-600 text-white px-2 py-1 rounded ml-2">Ištrinti</button>
+                    <button wire:click="edit({{ $client->id }})" class="bg-yellow-400 text-black px-2 py-1 rounded">
+                        Redaguoti
+                    </button>
+                    <button wire:click="confirmDelete({{ $client->id }})" class="bg-red-600 text-black px-2 py-1 rounded ml-2">
+                        Ištrinti
+                    </button>
                     </td>
                 </tr>
             @endforeach
@@ -89,8 +93,12 @@
         <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div class="bg-white p-6 rounded shadow-lg max-w-sm w-full">
                 <h3 class="text-lg mb-4">Ar tikrai norite ištrinti klientą?</h3>
-                <button wire:click="deleteConfirmed" class="bg-red-600 text-white px-4 py-2 rounded">Taip, ištrinti</button>
-                <button wire:click="cancelDelete" class="ml-2 bg-gray-400 px-4 py-2 rounded">Atšaukti</button>
+                <button wire:click="deleteConfirmed" class="bg-red-600 text-black px-4 py-2 rounded">
+                    Taip, ištrinti
+                </button>
+                <button wire:click="cancelDelete" class="ml-2 bg-gray-400 text-black px-4 py-2 rounded">
+                    Atšaukti
+                </button>
             </div>
         </div>
     @endif

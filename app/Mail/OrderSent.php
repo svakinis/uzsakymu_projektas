@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use PDF;
 use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailables\Content;
@@ -20,7 +21,7 @@ class OrderSent extends Mailable
      */
     public function __construct(Order $order)
     {
-        $this->order = $order->load('service');
+        $this->order = $order->load(['service', 'client']);
     }
 
     /**
